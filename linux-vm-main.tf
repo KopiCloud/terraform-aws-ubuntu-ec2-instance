@@ -54,7 +54,7 @@ resource "aws_eip_association" "linux-eip-association" {
 # Define the security group for the Linux server
 resource "aws_security_group" "aws-linux-sg" {
   name        = "${lower(var.app_name)}-${var.app_environment}-linux-sg"
-  description = "Allow incoming HTTP connections"
+  description = "Allow incoming traffic to the Linux EC2 Instance"
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
