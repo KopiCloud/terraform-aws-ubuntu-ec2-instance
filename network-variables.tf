@@ -17,7 +17,7 @@ variable "vpc_cidr" {
 }
 
 # Subnet Variables
-variable "vpc_public_subnet_cidr" {
+variable "public_subnet_cidr" {
   type        = string
   description = "CIDR for the public subnet"
   default     = "10.1.64.0/24"
