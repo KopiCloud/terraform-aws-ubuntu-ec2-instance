@@ -15,7 +15,7 @@ resource "aws_vpc" "vpc" {
 # Define the public subnet
 resource "aws_subnet" "public-subnet" {
   vpc_id = aws_vpc.vpc.id
-  cidr_block = var.vpc_public_subnet_cidr
+  cidr_block = var.public_subnet_cidr
   availability_zone = var.aws_az
   tags = {
     Name = "${lower(var.app_name)}-${lower(var.app_environment)}-public-subnet"
