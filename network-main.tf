@@ -4,7 +4,7 @@
 
 # Create the VPC
 resource "aws_vpc" "vpc" {
-  cidr_block = var.vpc_cidr
+  cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
   tags = {
     Name = "${lower(var.app_name)}-${lower(var.app_environment)}-vpc"
@@ -14,8 +14,8 @@ resource "aws_vpc" "vpc" {
 
 # Define the public subnet
 resource "aws_subnet" "public-subnet" {
-  vpc_id = aws_vpc.vpc.id
-  cidr_block = var.public_subnet_cidr
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = var.public_subnet_cidr
   availability_zone = var.aws_az
   tags = {
     Name = "${lower(var.app_name)}-${lower(var.app_environment)}-public-subnet"
@@ -47,6 +47,6 @@ resource "aws_route_table" "public-rt" {
 
 # Assign the public route table to the public subnet
 resource "aws_route_table_association" "public-rt-association" {
-  subnet_id = aws_subnet.public-subnet.id
+  subnet_id      = aws_subnet.public-subnet.id
   route_table_id = aws_route_table.public-rt.id
 }
